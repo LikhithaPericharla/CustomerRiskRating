@@ -1,0 +1,12 @@
+SELECT
+        CustomerId,
+        DateFromParts(Year(TransactionDate), Month(TransactionDate), 1) As TransactionMonth,
+        SUM(CASE 
+            WHEN TransactionCount > 4 THEN 4 
+            ELSE TransactionCount 
+        END) As TransactionCount
+    FROM
+        cteByDay
+    GROUP BY
+        CustomerId,
+        DateFromParts(Year(TransactionDate), Month(TransactionDate), 1)
