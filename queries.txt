@@ -1,0 +1,15 @@
+SQL Queries Required to get the number of transactions per day and per month
+
+SELECT
+        CustomerId,
+        TransactionDate,
+        Count(1) As TransactionCount
+    FROM
+        YourTable
+    GROUP BY
+        CustomerId,
+        TransactionDate;
+
+SELECT DATEDIFF(dd, create_date, GETDATE()) 
+FROM sys.databases 
+WHERE database_id = 2;
