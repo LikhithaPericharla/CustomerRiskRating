@@ -1,0 +1,25 @@
+SQL Queries Required to get the number of transactions per day and per month
+
+SELECT
+        CustomerId,
+        TransactionDate,
+        Count(1) As TransactionCount
+    FROM
+        YourTable
+    GROUP BY
+        CustomerId,
+        TransactionDate;
+
+SELECT DATEDIFF(dd, create_date, GETDATE()) 
+FROM sys.databases 
+WHERE database_id = 2;
+
+
+* We can store the number of transactions of every month in a array and based on the given conditions we can chcek if any value is greater than the given input
+
+select count(customer_id)) from selectDataOnYearandMonthDemo where YEAR(BookDueDate) = 2019 AND MONTH(BookDueDate) = 12;
+
+We can store the sum of transactions of every month in a array and based on the given conditions we can chcek if any value is greater than the given input
+
+
+select sum(transactions) from selectDataOnYearandMonthDemo where YEAR(BookDueDate) = 2019 AND MONTH(BookDueDate) = 12;
