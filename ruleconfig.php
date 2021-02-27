@@ -1,6 +1,7 @@
 <?php
-
-
+$db = mysqli_connect('localhost', 'root', '', 'dbshack');
+$query = "SELECT * FROM rules";
+    $results = mysqli_query($db, $query);
 ?>
 
 <html>
@@ -9,13 +10,22 @@
 </head>
    
 <body>
-  <table>
+  <center><table>
 <tr>
 <th>ID</th>
 <th>Rule description  </th>
 
 <th> Risk type</th>
-  </table>
+<?php
+while($rows=mysqli_fetch_assoc($results)){
+echo "<tr>";
+echo"<td>".$rows['id']."</td>";
+echo"<td>".$rows['rule_desc']."</td>";
+echo"<td>".$rows['risk_type']."</td>";
+echo '</tr>';
+}
+?>
+  </table></center>
 
 
 </body>
